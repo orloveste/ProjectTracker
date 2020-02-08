@@ -24,8 +24,8 @@ create table projectTracker.item
     titleItem varchar(60)not null ,
     descriptionItem varchar(250)not null ,
     idStatus int unsigned,
-    typeId int unsigned,
-    foreign key (typeId) references projectTracker.type (idType),
+    idType int unsigned,
+    foreign key (idType) references projectTracker.type (idType),
     foreign key (idStatus) references projectTracker.status(idStatus)
 );
 create table projectTracker.comment
