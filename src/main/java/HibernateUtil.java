@@ -22,6 +22,7 @@ public class HibernateUtil {
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
                 configuration.addAnnotatedClass(Type.class);
+                configuration.addAnnotatedClass(Status.class);
                 configuration.setProperties(settings);
 
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
