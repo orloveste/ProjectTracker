@@ -35,7 +35,7 @@ public class CommentService {
             ex.printStackTrace();
         }
     }
-    public void updateComment (Comment modifComment) {
+    public Comment updateComment (Comment modifComment) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -48,6 +48,7 @@ public class CommentService {
             }
             ex.printStackTrace();
         }
+        return null;
     }
     public void deleteComment (Comment trashComment) {
         Transaction transaction = null;

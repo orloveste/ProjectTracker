@@ -35,7 +35,7 @@ public class ProjectService {
             ex.printStackTrace();
         }
     }
-    public void updateProject (Comment modifProject) {
+    public Project updateProject (Project modifProject) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -48,6 +48,7 @@ public class ProjectService {
             }
             ex.printStackTrace();
         }
+        return null;
     }
     public void deleteProject (Comment trashProject) {
         Transaction transaction = null;

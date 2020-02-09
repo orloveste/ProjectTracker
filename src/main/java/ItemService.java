@@ -21,7 +21,7 @@ public class ItemService {
             return null;
         }
     }
-    public void createItem (Comment newItem) {
+    public void createItem (Item newItem) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -35,7 +35,7 @@ public class ItemService {
             ex.printStackTrace();
         }
     }
-    public void updateItem (Comment modifItem) {
+    public Item updateItem (Item modifItem) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -48,8 +48,9 @@ public class ItemService {
             }
             ex.printStackTrace();
         }
+        return null;
     }
-    public void deleteItem (Comment trashItem) {
+    public void deleteItem (Item trashItem) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();

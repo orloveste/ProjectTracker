@@ -21,7 +21,7 @@ public class TypeService {
             return null;
         }
     }
-    public void createType (Comment newType) {
+    public void createType (Type newType) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -35,7 +35,7 @@ public class TypeService {
             ex.printStackTrace();
         }
     }
-    public void updateType (Comment modifType) {
+    public Type updateType (Type modifType) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -48,8 +48,9 @@ public class TypeService {
             }
             ex.printStackTrace();
         }
+        return null;
     }
-    public void deleteType (Comment trashType) {
+    public void deleteType (Type trashType) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
