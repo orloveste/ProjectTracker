@@ -1,4 +1,5 @@
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class ItemService {
     private static ItemService instance;
@@ -18,6 +19,48 @@ public class ItemService {
         }catch (Exception exGetItem){
             exGetItem.printStackTrace();
             return null;
+        }
+    }
+    public void createItem (Comment newItem) {
+        Transaction transaction = null;
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            session.save(newItem);
+            transaction.commit();
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+    }
+    public void updateItem (Comment modifItem) {
+        Transaction transaction = null;
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            session.update(modifItem);
+            transaction.commit();
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+    }
+    public void deleteItem (Comment trashItem) {
+        Transaction transaction = null;
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            session.delete(trashItem);
+            transaction.commit();
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
         }
     }
 }

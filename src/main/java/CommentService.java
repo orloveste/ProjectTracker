@@ -1,4 +1,5 @@
 import org.hibernate.Session;
+import org.hibernate.Transaction;
 
 public class CommentService {
     private static CommentService instance;
@@ -18,6 +19,48 @@ public class CommentService {
         }catch (Exception exGetCpomment){
             exGetCpomment.printStackTrace();
             return null;
+        }
+    }
+    public void createComment (Comment newComment) {
+        Transaction transaction = null;
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            session.save(newComment);
+            transaction.commit();
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+    }
+    public void updateComment (Comment modifComment) {
+        Transaction transaction = null;
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            session.update(modifComment);
+            transaction.commit();
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
+        }
+    }
+    public void deleteComment (Comment trashComment) {
+        Transaction transaction = null;
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            transaction = session.beginTransaction();
+            session.delete(trashComment);
+            transaction.commit();
+        } catch (Exception ex) {
+            if (transaction != null) {
+                transaction.rollback();
+            }
+            ex.printStackTrace();
         }
     }
 }
