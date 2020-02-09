@@ -38,4 +38,6 @@ create table projectTracker.comment
 insert into projecttracker.type (nameType) values ('urgent');
 insert into projecttracker.status (nameStatus) values ('Open');
 insert into projecttracker.project (nameProject, shortNameProject, descriptionProject, idStatus)
-values ('FirstProj', 'Pr-1', 'test first connection', 1 )
+values ('FirstProj', 'Pr-1', 'test first connection', 1 );
+insert into projecttracker.item (titleItem, descriptionItem, idStatus, idType)
+values ('Unable to connect', 'log in fail', 1, 1)
