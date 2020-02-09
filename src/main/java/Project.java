@@ -1,6 +1,4 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Project {
@@ -11,6 +9,10 @@ public class Project {
     String shortNameProject;
     String descriptionProject;
     Integer idStatus;
+
+    @ManyToOne
+    @JoinColumn (name = "idStatus")
+    Status statusForProject;
 
     @Override
     public String toString() {
