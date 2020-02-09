@@ -9,16 +9,16 @@ public class Status {
 
     String nameStatus;
 
-    @OneToMany
+    /*@OneToMany
             (mappedBy = "status")
-    List<Project> statusForProject;
+    List<Project> statusForProject;*/ //not needed for now = unidirectional
 
     @Override
     public String toString() {
         return "Status{" +
                 "idStatus=" + idStatus +
                 ", nameStatus='" + nameStatus + '\'' +
-                ", statusForProject=" + statusForProject +
+                /*", statusForProject=" + statusForProject +*/ //not needed for now = unidirectional
                 '}';
     }
 }
