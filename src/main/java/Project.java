@@ -1,18 +1,21 @@
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 public class Project {
     @Id
     @GeneratedValue
     Integer idProject;
+
     String nameProject;
     String shortNameProject;
     String descriptionProject;
-    Integer idStatus;
+
+
 
     @ManyToOne
     @JoinColumn (name = "idStatus")
-    Status statusForProject;
+    Status status;
 
     @Override
     public String toString() {
@@ -21,7 +24,7 @@ public class Project {
                 ", nameProject='" + nameProject + '\'' +
                 ", shortNameProject='" + shortNameProject + '\'' +
                 ", descriptionProject='" + descriptionProject + '\'' +
-                ", idStatus=" + idStatus +
+                ", idStatus=" + status.idStatus +
                 '}';
     }
 }

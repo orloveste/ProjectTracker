@@ -4,7 +4,7 @@ import org.hibernate.Transaction;
 import java.util.List;
 
 public class ProjectService {
-    private  StatusService statusService = StatusService.getInstance();
+
     private static ProjectService instance;
     private ProjectService(){
 
@@ -15,10 +15,7 @@ public class ProjectService {
         }return instance;
     }
 
-    public List<Project> getStatusByIdProjects(Integer idStatus){
-        Status status = statusService.getStatus(idStatus);
-        return  status.projects;
-    }
+
 
     public Project getProject(Integer idProject){
         try {

@@ -1,25 +1,24 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import java.util.List;
 
 @Entity
 public class Status {
     @Id
-    @GeneratedValue
-    //Integer idStatus;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer idStatus;
 
     String nameStatus;
 
-    @OneToMany (mappedBy = "statusForProject")
-    List<Project> projects;
+    @OneToMany
+            (mappedBy = "status")
+    List<Project> statusForProject;
 
     @Override
     public String toString() {
         return "Status{" +
-                "nameStatus='" + nameStatus + '\'' +
-                ", projects=" + projects +
+                "idStatus=" + idStatus +
+                ", nameStatus='" + nameStatus + '\'' +
+                ", statusForProject=" + statusForProject +
                 '}';
     }
 }

@@ -1,7 +1,10 @@
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
+import java.util.List;
+
 public class StatusService {
+    private ProjectService projectService = ProjectService.getInstance();
     private static StatusService instance;
     private StatusService(){
 
@@ -11,6 +14,14 @@ public class StatusService {
             instance = new StatusService();
         }return instance;
     }
+    public Status getStatusByIdProject(Integer idProject){
+        Project project = projectService.getProject(idProject);
+        return project.status;
+    }
+//    public List<Project> getStatusByIdProjects(Integer idStatus){
+//        Status status = statusService.getStatus(idStatus);
+//        return  status.projects;
+//    }
     public Status getStatus (Integer idStatus){
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -21,7 +32,7 @@ public class StatusService {
             return null;
         }
     }
-    public void createStatus (Comment newStatus) {
+    public Status createStatus (Status newStatus) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -34,8 +45,9 @@ public class StatusService {
             }
             ex.printStackTrace();
         }
+        return newStatus;
     }
-    public void updateStatus (Comment modifStatus) {
+    public void updateStatus (Status modifStatus) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -49,7 +61,7 @@ public class StatusService {
             ex.printStackTrace();
         }
     }
-    public void deleteStatus (Comment trashStatus) {
+    public void deleteStatus (Status trashStatus) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
