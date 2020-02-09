@@ -36,4 +36,6 @@ create table projectTracker.comment
     foreign key (itemId) references projectTracker.item (itemId)
 );
 insert into projecttracker.type (nameType) values ('urgent');
-insert into projecttracker.status (nameStatus) values ('Open')
+insert into projecttracker.status (nameStatus) values ('Open');
+insert into projecttracker.project (nameProject, shortNameProject, descriptionProject, idStatus)
+values ('FirstProj', 'Pr-1', 'test first connection', 1 )
