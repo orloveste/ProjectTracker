@@ -14,14 +14,12 @@ public class StatusService {
             instance = new StatusService();
         }return instance;
     }
+
     public Status getStatusByIdProject(Integer idProject){
         Project project = projectService.getProject(idProject);
         return project.status;
     }
-//    public List<Project> getStatusByIdProjects(Integer idStatus){
-//        Status status = statusService.getStatus(idStatus);
-//        return  status.projects;
-//    }
+
     public Status getStatus (Integer idStatus){
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();

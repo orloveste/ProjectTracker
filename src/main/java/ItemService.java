@@ -21,7 +21,7 @@ public class ItemService {
             return null;
         }
     }
-    public void createItem (Item newItem) {
+    public Item createItem (Item newItem) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -33,7 +33,7 @@ public class ItemService {
                 transaction.rollback();
             }
             ex.printStackTrace();
-        }
+        } return newItem;
     }
     public Item updateItem (Item modifItem) {
         Transaction transaction = null;

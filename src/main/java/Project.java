@@ -4,7 +4,7 @@ import java.util.List;
 @Entity
 public class Project {
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer idProject;
 
     String nameProject;

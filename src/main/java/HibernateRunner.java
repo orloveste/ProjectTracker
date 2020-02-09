@@ -2,8 +2,27 @@ import java.util.Objects;
 
 public class HibernateRunner {
     public static void main(String[] args) {
-        StatusService statusService = StatusService.getInstance();
         ProjectService projectService = ProjectService.getInstance();
+        Project newProject = new Project();
+        Status status = StatusService.getInstance().getStatus(2);
+
+        newProject.nameProject = "My Project";
+        newProject.shortNameProject = "Pr-4";
+        newProject.descriptionProject = "add project for map";
+        newProject.status = status;
+        projectService.createProject(newProject);
+
+        System.out.println(newProject);
+
+
+
+
+
+        HibernateUtil.shutdown();
+    }
+}
+/*StatusService statusService = StatusService.getInstance();
+
         Status newStatus = new Status();
         newStatus.nameStatus = "Closed";
         statusService.createStatus(newStatus);
@@ -22,13 +41,7 @@ public class HibernateRunner {
 
         Status newStatus4 = new Status();
         newStatus4.nameStatus = "ReOffered";
-        statusService.createStatus(newStatus4);
-
-
-
-        HibernateUtil.shutdown();
-    }
-}
+        statusService.createStatus(newStatus4);*/ // create new status
 /*ProjectService projectService = ProjectService.getInstance();
         Project projectToUpdate = projectService.getProject(1);
         projectToUpdate.nameProject = "First Project update";

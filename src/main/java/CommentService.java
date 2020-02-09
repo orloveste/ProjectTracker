@@ -21,7 +21,7 @@ public class CommentService {
             return null;
         }
     }
-    public void createComment (Comment newComment) {
+    public Comment createComment (Comment newComment) {
         Transaction transaction = null;
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();
@@ -33,7 +33,7 @@ public class CommentService {
                 transaction.rollback();
             }
             ex.printStackTrace();
-        }
+        } return newComment;
     }
     public Comment updateComment (Comment modifComment) {
         Transaction transaction = null;
