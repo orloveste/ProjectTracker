@@ -40,4 +40,6 @@ insert into projecttracker.status (nameStatus) values ('Open');
 insert into projecttracker.project (nameProject, shortNameProject, descriptionProject, idStatus)
 values ('FirstProj', 'Pr-1', 'test first connection', 1 );
 insert into projecttracker.item (titleItem, descriptionItem, idStatus, idType)
-values ('Unable to connect', 'log in fail', 1, 1)
+values ('Unable to connect', 'log in fail', 1, 1);
+insert into projecttracker.comment (textComment, itemId)
+values ('toDo Create,update,delete', 1)
