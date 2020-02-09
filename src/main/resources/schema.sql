@@ -35,4 +35,5 @@ create table projectTracker.comment
     itemId int unsigned,
     foreign key (itemId) references projectTracker.item (itemId)
 );
-insert into projecttracker.type (nameType) values ('urgent')
+insert into projecttracker.type (nameType) values ('urgent');
+insert into projecttracker.status (nameStatus) values ('Open')
