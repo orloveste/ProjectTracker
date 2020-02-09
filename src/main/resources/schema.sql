@@ -34,4 +34,5 @@ create table projectTracker.comment
     textComment varchar(3000) not null ,
     itemId int unsigned,
     foreign key (itemId) references projectTracker.item (itemId)
-)
+);
+insert into projecttracker.type (nameType) values ('urgent')
