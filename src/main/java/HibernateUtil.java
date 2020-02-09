@@ -31,7 +31,7 @@ public class HibernateUtil {
             }
         } return sessionFactory;
     }
-    public static void shutdowm(){
+    public static void shutdown() {
         getSessionFactory().close();
     }
 }
