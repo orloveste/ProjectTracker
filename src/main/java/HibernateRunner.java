@@ -6,6 +6,9 @@ public class HibernateRunner {
         Status status = statusService.getStatusByIdProject(5);
         System.out.println("Status for proj 5: "+status);
 
+        status = statusService.getStatusByIdItem(2);
+        System.out.println("Status for item: "+ status);
+
         HibernateUtil.shutdown();
     }
 }

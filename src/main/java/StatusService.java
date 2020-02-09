@@ -5,6 +5,8 @@ import java.util.List;
 
 public class StatusService {
     private ProjectService projectService = ProjectService.getInstance();
+    private ItemService itemService = ItemService.getInstance();
+
     private static StatusService instance;
     private StatusService(){
 
@@ -18,6 +20,10 @@ public class StatusService {
     public Status getStatusByIdProject(Integer idProject){
         Project project = projectService.getProject(idProject);
         return project.status;
+    }
+    public Status getStatusByIdItem(Integer idItem){
+        Item item = itemService.getItem(idItem);
+        return item.statusFromItem;
     }
 
     public Status getStatus (Integer idStatus){
