@@ -5,7 +5,7 @@ public class HibernateRunner {
        ItemService itemService = ItemService.getInstance();
 
        Item itemByComment = itemService.getItemByCommentId(1);
-        System.out.println(itemByComment);
+       System.out.println(itemByComment); // get item info by comment
 
 
         HibernateUtil.shutdown();
