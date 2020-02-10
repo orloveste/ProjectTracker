@@ -2,6 +2,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class TypeService {
+    private ItemService itemService = ItemService.getInstance();
+
     private static TypeService instance;
     private TypeService(){
 
@@ -11,6 +13,12 @@ public class TypeService {
             instance = new TypeService();
         } return instance;
     }
+
+    public Type getTypeByIdItem(Integer idItem){
+        Item item = itemService.getItem(idItem);
+        return  item.typeFromItem;
+    }
+
     public Type getType (Integer idType){
         try {
             Session session = HibernateUtil.getSessionFactory().openSession();

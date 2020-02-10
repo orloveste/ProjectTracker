@@ -2,16 +2,23 @@ import java.util.Objects;
 
 public class HibernateRunner {
     public static void main(String[] args) {
+        TypeService typeService = TypeService.getInstance();
         StatusService statusService = StatusService.getInstance();
-        Status status = statusService.getStatusByIdProject(5);
-        System.out.println("Status for proj 5: "+status);
 
-        status = statusService.getStatusByIdItem(2);
-        System.out.println("Status for item: "+ status);
+
+        Status statusByIdItem = statusService.getStatusByIdItem(2);
+        Type typeByIdItem = typeService.getTypeByIdItem(2);
+        System.out.println("Type & Status by idItem: "+ typeByIdItem + statusByIdItem);
 
         HibernateUtil.shutdown();
     }
 }
+/*StatusService statusService = StatusService.getInstance();
+        Status status = statusService.getStatusByIdProject(5);
+        System.out.println("Status for proj 5: "+status);
+
+        status = statusService.getStatusByIdItem(2);
+        System.out.println("Status for item: "+ status);*/ //get status by id item&Project
 /*ProjectService projectService = ProjectService.getInstance();
         Project newProject = new Project();
         Status status = StatusService.getInstance().getStatus(2);
