@@ -1,7 +1,4 @@
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
 public class Comment {
@@ -9,14 +6,19 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer commentId;
     String textComment;
-    Integer itemId;
+
+    //Integer itemId;
+    @ManyToOne
+    @JoinColumn(name = "itemId")
+    Item itemFromComment;
 
     @Override
     public String toString() {
         return "Comment{" +
                 "commentId=" + commentId +
                 ", textComment='" + textComment + '\'' +
-                ", itemId=" + itemId +
+                ", itemFromComment=" + itemFromComment.titleItem +
+                ", itemFromComment=" + itemFromComment.descriptionItem +
                 '}';
     }
 }

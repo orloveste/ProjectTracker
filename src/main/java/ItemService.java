@@ -2,6 +2,8 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 public class ItemService {
+    CommentService commentService = CommentService.getInstance();
+
     private static ItemService instance;
     private ItemService(){
 
@@ -10,6 +12,11 @@ public class ItemService {
         if (instance == null){
             instance = new ItemService();
         }return instance;
+    }
+
+    public  Item getItemByCommentId(Integer commentId){
+        Comment comment = commentService.getComment(commentId);
+        return comment.itemFromComment;
     }
     public Item getItem(Integer itemId){
         try {
