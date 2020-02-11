@@ -19,8 +19,10 @@ public class HibernateUtil {
                 settings.put(Environment.USER, "root");
                 settings.put(Environment.PASS, "root");
                 settings.put(Environment.DIALECT, "org.hibernate.dialect.MySQL5Dialect");
+
                 settings.put(Environment.SHOW_SQL, "true");
                 settings.put(Environment.CURRENT_SESSION_CONTEXT_CLASS, "thread");
+
                 configuration.addAnnotatedClass(Type.class);
                 configuration.addAnnotatedClass(Status.class);
                 configuration.addAnnotatedClass(Project.class);
@@ -31,7 +33,9 @@ public class HibernateUtil {
                 ServiceRegistry serviceRegistry = new StandardServiceRegistryBuilder()
                         .applySettings(configuration.getProperties()).build();
                 sessionFactory = configuration.buildSessionFactory(serviceRegistry);
+                System.out.println("Hibernate serviceRegistry created");
             } catch (Exception e){
+                System.err.println("Initial SessionFacrory creation failed."+e);
                 e.printStackTrace();
             }
         } return sessionFactory;
