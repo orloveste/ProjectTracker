@@ -1,8 +1,23 @@
+import org.hibernate.Session;
+import org.hibernate.query.Query;
+
+import java.util.List;
 import java.util.Objects;
 
 public class HibernateRunner {
     public static void main(String[] args) {
-        ItemService itemService = ItemService.getInstance();
+
+//        String hql = "from Type";
+//        Query query = session.createQuery(hql);
+//        List<Type> typeList = query.list();
+//        for (Type aType : typeList){
+//            System.out.println(aType.getType());
+//        }
+
+        HibernateUtil.shutdown();
+    }
+}
+/*ItemService itemService = ItemService.getInstance();
         Item newItem = new Item();
 
         Status status = StatusService.getInstance().getStatus(6); //1to6
@@ -13,12 +28,8 @@ public class HibernateRunner {
         newItem.statusFromItem = status;
         newItem.typeFromItem = type;
         itemService.createItem(newItem);
-        System.out.println("Create new Item: "+newItem); //Create new Items in DB
+        System.out.println("Create new Item: "+newItem); //Create new Items in DB*/
 
-
-        HibernateUtil.shutdown();
-    }
-}
 /*ItemService itemService = ItemService.getInstance();
 
        Item itemByComment = itemService.getItemByCommentId(1);

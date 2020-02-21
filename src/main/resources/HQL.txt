@@ -15,3 +15,25 @@ It is very powerful and flexible and has the following
     ex: Person and person are two different objects
 
 CRUD https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
+
+1. How to execute HQL in Hibernate
+    - Write your HQL:
+    String hql = "Your Query Goes Here";
+    - Create a Query from the Session:
+    Query query = session.createQuery(hql); //todo research
+    - Execute the query
+        depending on the type of the query (listing or update), an appropriate
+        method is used:
+            ^ For a listing query (SELECT):
+            List listResult = query.list();
+            ^ For an update query (INSERT, UPDATE, DELETE):
+            int rowsAffected = query.executeUpdate();
+    - Extract result returned from the query
+        depending of the type of the query, Hibernate returns different type of result set.
+            ^ Select query on a mapped object returns a list of those objects.
+            ^ Join query returns a list of arrays of Objects which are aggregate of columns
+             of the joined tables. This also applies for queries using aggregate functions
+             (count, sum, avg, etc).
+
+2. Hibernate List Query Example
+todo best
