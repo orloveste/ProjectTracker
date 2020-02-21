@@ -13,7 +13,7 @@ public class HibernateRunner {
         newItem.statusFromItem = status;
         newItem.typeFromItem = type;
         itemService.createItem(newItem);
-        System.out.println("Create new Item: "+newItem);
+        System.out.println("Create new Item: "+newItem); //Create new Items in DB
 
 
         HibernateUtil.shutdown();

@@ -1,0 +1,17 @@
+HQL Frameworks
+source: https://www.codejava.net/frameworks/hibernate/hibernate-query-language-hql-example
+The Hibernate ORM framework provides its own query language called Hibernate Query Language.
+It is very powerful and flexible and has the following
+    characteristics:
+- SQL similarity: syntax is very similar.
+    from SELECT, FROM, ORDERBY to arithmetic expressions and aggregate functions, etc.
+- Fully object-oriented:
+    HQL doesn’t use real names of table and columns.
+    -//- uses class and property names instead.
+    -//- can understand inheritance, polymorphism and association.
+- Case-insensitive for keYwoRds - like SQL
+    ex: SELECT, select or Select are the same
+- Case-sensitive for Java classes and properties
+    ex: Person and person are two different objects
+
+CRUD https://en.wikipedia.org/wiki/Create,_read,_update_and_delete
