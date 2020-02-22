@@ -9,7 +9,6 @@ import java.util.Scanner;
 public class Class_2020_02_22_Run {
     public static void main(String[] args) {
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
-        Session session = sessionFactory.getCurrentSession();
 
         Scanner reader = new Scanner(System.in);
         printHelloText();
@@ -30,21 +29,23 @@ public class Class_2020_02_22_Run {
                     break;
                 }
                 else if (userChooseOption == 1){
+                    Session session = sessionFactory.getCurrentSession();
                     Transaction tx = session.beginTransaction();
                     Query query = session.createQuery("from Project");
                     List<Project> projectList = query.list();
                     for (Project textProject : projectList){
                         System.out.println("List of projects::"+ textProject.idProject +", "+textProject.nameProject);
-                    } tx.rollback();
+                    }
                     sessionFactory.close();
                 }else if (userChooseOption == 2){
+                    Session session = sessionFactory.getCurrentSession();
                     Transaction tx = session.beginTransaction();
                     Query query = session.createQuery("from Project");
                     List<Project> projectList = query.list();
                     for (Project textProject : projectList){
                         System.out.println("List of projects::"+ textProject.status +", "+ textProject.idProject
                                 +", "+textProject.nameProject);
-                    } tx.rollback();
+                    }
                     sessionFactory.close();
                 } else {
                     printFrontMenu();
@@ -58,12 +59,13 @@ public class Class_2020_02_22_Run {
                     break;
                 }
                 else if (userChooseOption == 1){
+                    Session session = sessionFactory.getCurrentSession();
                     Transaction tx = session.beginTransaction();
                     Query query = session.createQuery("from Status");
                     List<Status> statusList = query.list();
                     for (Status textStatus : statusList){
                         System.out.println("List of statuses::"+ textStatus.idStatus +", "+ textStatus.nameStatus);
-                    } tx.rollback();
+                    }
                     sessionFactory.close();
                 } else {
                     printFrontMenu();
@@ -77,12 +79,13 @@ public class Class_2020_02_22_Run {
                     break;
                 }
                 else if (userChooseOption == 1){
+                    Session session = sessionFactory.getCurrentSession();
                     Transaction tx = session.beginTransaction();
                     Query query = session.createQuery("from Type");
                     List<Type> typeList = query.list();
                     for (Type textType : typeList){
                         System.out.println("List of types::"+ textType.idType +", "+ textType.nameType);
-                    } tx.rollback();
+                    }
                     sessionFactory.close();
                 } else {
                     printFrontMenu();
