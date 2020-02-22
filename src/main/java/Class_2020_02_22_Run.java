@@ -15,6 +15,18 @@ public class Class_2020_02_22_Run {
             }
             else if (userChooseOption == 1){
                 printProjectMenu();
+                userChooseOption = reader.nextInt();
+                if (userChooseOption < 0 || userChooseOption >2){
+                    System.out.println("Option is not valid");
+                    break;
+                }
+                else if (userChooseOption == 1){
+                    System.out.println("first option");
+                }else if (userChooseOption == 2){
+                    System.out.println("second option");
+                } else {
+                    printFrontMenu();
+                }
             }
             else if (userChooseOption == 2){
                 printStatusMenu();
@@ -40,8 +52,8 @@ public class Class_2020_02_22_Run {
         System.out.println("1 for List of Project");
         System.out.println("2 for Status of Projects");
         //can be submenu
-        System.out.println("3 for Items of acction in Projects");
-        System.out.println("4 for Type of acction in Projects");
+//        System.out.println("3 for Items of acction in Projects");
+//        System.out.println("4 for Type of acction in Projects");
         System.out.println("0 for back in Front Menu");
     }
     private static void printStatusMenu() {
