@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 public class Class_2020_02_22_Run {
     public static void main(String[] args) {
-        System.out.println("Hello in Project Controller!");
+        printHelloText();
 
         System.out.println("Choose the option:");
         System.out.println("1 for Project");
@@ -12,5 +12,8 @@ public class Class_2020_02_22_Run {
         int userChooseOption = reader.nextInt();
 
 
+    }
+    private static void printHelloText() {
+        System.out.println("Hello in Project Controller!");
     }
 }
