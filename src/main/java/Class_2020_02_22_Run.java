@@ -119,3 +119,14 @@ public class Class_2020_02_22_Run {
         System.out.println("0 for back in Front Menu");
     }
 }
+//Exception in thread "main" java.lang.IllegalStateException: Session/EntityManager is closed
+//	at org.hibernate.internal.AbstractSharedSessionContract.checkOpen(AbstractSharedSessionContract.java:360)
+//	at org.hibernate.engine.spi.SharedSessionContractImplementor.checkOpen(SharedSessionContractImplementor.java:139)
+//	at org.hibernate.internal.AbstractSharedSessionContract.beginTransaction(AbstractSharedSessionContract.java:465)
+//	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+//	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+//	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+//	at java.lang.reflect.Method.invoke(Method.java:498)
+//	at org.hibernate.context.internal.ThreadLocalSessionContext$TransactionProtectionWrapper.invoke(ThreadLocalSessionContext.java:350)
+//	at com.sun.proxy.$Proxy17.beginTransaction(Unknown Source)
+//	at Class_2020_02_22_Run.main(Class_2020_02_22_Run.java:41)
