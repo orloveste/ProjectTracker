@@ -7,12 +7,19 @@ public class Class_2020_02_22_Run {
         String enterProgram = reader.nextLine();
         printFrontMenu();
 
-
         while (true){
             int userChooseOption = reader.nextInt();
             if (userChooseOption <= 0 || userChooseOption >= 4){
                 System.out.println("Option is not valid");
                 break;
+            }
+            else if (userChooseOption == 1){
+                System.out.println("First option");
+            }
+            else if (userChooseOption == 2){
+                System.out.println("Second option");
+            }else if (userChooseOption == 3){
+                System.out.println("Third option");
             }
         }
 
