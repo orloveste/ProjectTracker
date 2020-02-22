@@ -14,12 +14,12 @@ public class Class_2020_02_22_Run {
                 break;
             }
             else if (userChooseOption == 1){
-                System.out.println("First option Project");
+                printProjectMenu();
             }
             else if (userChooseOption == 2){
-                System.out.println("Second option Status");
+                printStatusMenu();
             }else if (userChooseOption == 3){
-                System.out.println("Third option Type");
+                printTypeMenu();
             }
         }
 
@@ -45,12 +45,12 @@ public class Class_2020_02_22_Run {
         System.out.println("0 for back in Front Menu");
     }
     private static void printStatusMenu() {
-        System.out.println("Choose the option:");
+        System.out.println("Status menu - Choose the option:");
         System.out.println("1 for List of Statuses");
         System.out.println("0 for back in Front Menu");
     }
     private static void printTypeMenu() {
-        System.out.println("Choose the option:");
+        System.out.println("Type menu - Choose the option:");
         System.out.println("1 for List of Type");
         System.out.println("0 for back in Front Menu");
     }
