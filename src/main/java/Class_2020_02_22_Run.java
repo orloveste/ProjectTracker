@@ -14,9 +14,9 @@ public class Class_2020_02_22_Run {
         Scanner reader = new Scanner(System.in);
         printHelloText();
         String enterProgram = reader.nextLine();
-        printFrontMenu();
 
         while (true){
+            printFrontMenu();
             int userChooseOption = reader.nextInt();
             if (userChooseOption <= 0 || userChooseOption >= 4){
                 System.out.println("Option is not valid");
@@ -52,27 +52,40 @@ public class Class_2020_02_22_Run {
             }
             else if (userChooseOption == 2){
                 printStatusMenu();
+                userChooseOption = reader.nextInt();
+                if (userChooseOption < 0 || userChooseOption >1){
+                    System.out.println("Option is not valid");
+                    break;
+                }
+                else if (userChooseOption == 1){
+                    Transaction tx = session.beginTransaction();
+                    Query query = session.createQuery("from Status");
+                    List<Status> statusList = query.list();
+                    for (Status textStatus : statusList){
+                        System.out.println("List of statuses::"+ textStatus.idStatus +", "+ textStatus.nameStatus);
+                    } tx.rollback();
+                    sessionFactory.close();
+                } else {
+                    printFrontMenu();
+                }
 
             }else if (userChooseOption == 3){
                 printTypeMenu();
 
             }
         }
-
-
-
     }
     private static void printHelloText() {
         System.out.println("Hello in Project Controller!");
     }
     private static void printFrontMenu() {
-        System.out.println("Front menu - Choose the option:");
+        System.out.println("*\nFront menu - Choose the option:");
         System.out.println("1 for Project"); //done
         System.out.println("2 for Status of acction"); //done
         System.out.println("3 for Type of acction"); //done
     }
     private static void printProjectMenu() {
-        System.out.println("Project menu - Choose the option:");
+        System.out.println("**\nProject menu - Choose the option:");
         System.out.println("1 for List of Project"); //done
         System.out.println("2 for Status of Projects"); //done
         //can be submenu
@@ -81,13 +94,13 @@ public class Class_2020_02_22_Run {
         System.out.println("0 for back in Front Menu"); //ok
     }
     private static void printStatusMenu() {
-        System.out.println("Status menu - Choose the option:");
-        System.out.println("1 for List of Statuses");// todo
-        System.out.println("0 for back in Front Menu");
+        System.out.println("**\nStatus menu - Choose the option:");
+        System.out.println("1 for List of Statuses"); //done
+        System.out.println("0 for back in Front Menu"); //ok
     }
     private static void printTypeMenu() {
-        System.out.println("Type menu - Choose the option:");
-        System.out.println("1 for List of Type");
+        System.out.println("**\nType menu - Choose the option:");
+        System.out.println("1 for List of Type"); // TODO: 22-Feb-20
         System.out.println("0 for back in Front Menu");
     }
 }
