@@ -8,7 +8,7 @@ import java.util.Scanner;
 
 public class Class_2020_02_22_Run {
     public static void main(String[] args) {
-        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+        //SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
         Scanner reader = new Scanner(System.in);
         printHelloText();
@@ -29,24 +29,35 @@ public class Class_2020_02_22_Run {
                     break;
                 }
                 else if (userChooseOption == 1){
-                    Session session = sessionFactory.getCurrentSession();
-                    Transaction tx = session.beginTransaction();
-                    Query query = session.createQuery("from Project");
-                    List<Project> projectList = query.list();
-                    for (Project textProject : projectList){
-                        System.out.println("List of projects::"+ textProject.idProject +", "+textProject.nameProject);
+                    try {
+                        Session session = HibernateUtil.getSessionFactory().openSession();
+
+                        Query query = session.createQuery("from Project");
+                        List<Project> projectList = query.list();
+                        for (Project textProject : projectList) {
+                            System.out.println("List of projects::" + textProject.idProject + ", " + textProject.nameProject);
+                        }
+                        session.close();
+
+                    }catch (Exception ex){
+                        ex.printStackTrace();
+                        return;
                     }
-                    sessionFactory.close();
                 }else if (userChooseOption == 2){
-                    Session session = sessionFactory.getCurrentSession();
-                    Transaction tx = session.beginTransaction();
+                    try{
+                    Session session = HibernateUtil.getSessionFactory().openSession();
+
                     Query query = session.createQuery("from Project");
                     List<Project> projectList = query.list();
                     for (Project textProject : projectList){
                         System.out.println("List of projects::"+ textProject.status +", "+ textProject.idProject
                                 +", "+textProject.nameProject);
                     }
-                    sessionFactory.close();
+                    session.close();
+                    }catch (Exception ex){
+                        ex.printStackTrace();
+                        return;
+                    }
                 } else {
                     printFrontMenu();
                 }
@@ -59,14 +70,19 @@ public class Class_2020_02_22_Run {
                     break;
                 }
                 else if (userChooseOption == 1){
-                    Session session = sessionFactory.getCurrentSession();
-                    Transaction tx = session.beginTransaction();
+                    try{
+                    Session session = HibernateUtil.getSessionFactory().openSession();
+
                     Query query = session.createQuery("from Status");
                     List<Status> statusList = query.list();
                     for (Status textStatus : statusList){
                         System.out.println("List of statuses::"+ textStatus.idStatus +", "+ textStatus.nameStatus);
                     }
-                    sessionFactory.close();
+                    session.close();
+                    }catch (Exception ex){
+                        ex.printStackTrace();
+                        return;
+                    }
                 } else {
                     printFrontMenu();
                 }
@@ -79,19 +95,25 @@ public class Class_2020_02_22_Run {
                     break;
                 }
                 else if (userChooseOption == 1){
-                    Session session = sessionFactory.getCurrentSession();
-                    Transaction tx = session.beginTransaction();
+                    try{
+                    Session session = HibernateUtil.getSessionFactory().openSession();
+
                     Query query = session.createQuery("from Type");
                     List<Type> typeList = query.list();
                     for (Type textType : typeList){
                         System.out.println("List of types::"+ textType.idType +", "+ textType.nameType);
                     }
-                    sessionFactory.close();
+                    session.close();
+                    }catch (Exception ex){
+                        ex.printStackTrace();
+                        return;
+                    }
                 } else {
                     printFrontMenu();
                 }
             }
         }
+        //HibernateUtil.shutdown();
     }
     private static void printHelloText() {
         System.out.println("Hello in Project Controller!");
