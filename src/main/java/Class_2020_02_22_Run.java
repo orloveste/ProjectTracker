@@ -71,7 +71,22 @@ public class Class_2020_02_22_Run {
 
             }else if (userChooseOption == 3){
                 printTypeMenu();
-
+                userChooseOption = reader.nextInt();
+                if (userChooseOption < 0 || userChooseOption >1){
+                    System.out.println("Option is not valid");
+                    break;
+                }
+                else if (userChooseOption == 1){
+                    Transaction tx = session.beginTransaction();
+                    Query query = session.createQuery("from Type");
+                    List<Type> typeList = query.list();
+                    for (Type textType : typeList){
+                        System.out.println("List of types::"+ textType.idType +", "+ textType.nameType);
+                    } tx.rollback();
+                    sessionFactory.close();
+                } else {
+                    printFrontMenu();
+                }
             }
         }
     }
