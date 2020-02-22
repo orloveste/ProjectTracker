@@ -9,7 +9,15 @@ public class Class_2020_02_22_Run {
         System.out.println("2 for Status of acction");
         System.out.println("3 for Type of acction");
         Scanner reader = new Scanner(System.in);
-        int userChooseOption = reader.nextInt();
+
+        while (true){
+            int userChooseOption = reader.nextInt();
+            if (userChooseOption <= 0 || userChooseOption >= 4){
+                System.out.println("Option is not valid");
+                break;
+            }
+        }
+
 
 
     }
