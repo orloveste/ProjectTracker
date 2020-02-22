@@ -8,15 +8,38 @@ import java.util.Scanner;
 
 public class Class_2020_02_22_Run {
     public static void main(String[] args) {
-        //SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
+//        SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
         Scanner reader = new Scanner(System.in);
         printHelloText();
-        String enterProgram = reader.nextLine();
+        String begin_endProgram = reader.nextLine();
 
         while (true){
+
             printFrontMenu();
             int userChooseOption = reader.nextInt();
+            //int userChooseOption = reader.nextInt(begin_endProgram.compareToIgnoreCase("quit"));
+            //nextInt();
+           //int x = reader.nextInt();
+//            begin_endProgram = Integer.parseInt("quit");
+//            int userChooseOption = Integer.parseInt(reader.nextLine());
+//            if (userChooseOption == begin_endProgram) {
+//                System.exit(9);
+//            }else
+
+            //readOption(Scanner s);
+            //String line = s.readLine();
+            //if line = "quit" : System.exit();
+            //} else Integer.RarseInt;
+            //if (userChooseOption = "quit")
+
+
+
+//            if (begin_endProgram.equalsIgnoreCase("quit")){ //todo quit option
+//                System.out.println("Thank you for using our program! \n* Have a nice day *:)*");
+//                break;
+//            }
+
             if (userChooseOption <= 0 || userChooseOption >= 4){
                 System.out.println("Option is not valid");
                 break;
@@ -112,6 +135,7 @@ public class Class_2020_02_22_Run {
                     printFrontMenu();
                 }
             }
+
         }
         //HibernateUtil.shutdown();
     }
@@ -140,8 +164,8 @@ public class Class_2020_02_22_Run {
     }
     private static void printTypeMenu() {
         System.out.println("**\nType menu - Choose the option:");
-        System.out.println("1 for List of Type"); // TODO: 22-Feb-20
-        System.out.println("0 for back in Front Menu");
+        System.out.println("1 for List of Type"); // done
+        System.out.println("0 for back in Front Menu"); //ok
     }
 }
 //Exception in thread "main" java.lang.IllegalStateException: Session/EntityManager is closed
