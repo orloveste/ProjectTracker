@@ -1,5 +1,14 @@
 Hibernate
 Framework
-- is an Object/Relational Mapping (ORM) solution for Java environments.
+- is an Object/Relational Mapping (ORM)
+solution for Java environments.
 -- The term ORM refers to the technique of mapping data between an object model
 representation to a relational data model representation.
+
+Takes care of
+mapping from    Classes => Tables
+        Java data types => SQL data types
+
+Provides
+  - data query
+  - retrieval facilities
