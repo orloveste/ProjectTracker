@@ -12,3 +12,27 @@ mapping from    Classes => Tables
 Provides
   - data query
   - retrieval facilities
+
+Hibernate Interfaces
+    - SessionFactory
+      *a thread safe (and immutable) representation of the mapping of the application domain model
+       to a database;
+      *very expensive to create;
+      *for any given database, the application should have only one associated SessionFactory
+      *maintains services that Hibernate uses across all Session(s).
+    - The EntityManagerFactory
+      = JPA equivalent => SessionFactory
+      basically those two converge into the same SessionFactory implementation.
+    - Session
+      *single threaded, short lived object conceptually
+       modeling a "Unit of Work";
+      *JPA nomenclature - is represented by an EntityManager
+      *wraps a JDBC Connection
+      *acts as a factory for Transaction instances
+    - Transaction
+      *single threaded, short lived object
+      *used to demarcate individual physical transaction boundaries
+    - EntityTransaction
+      *is the JPA equivalent
+      *both act as an abstraction API to isolate the application
+      from the underlying transaction system in use (JDBC or JTA)
