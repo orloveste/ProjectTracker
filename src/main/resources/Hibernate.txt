@@ -36,3 +36,16 @@ Hibernate Interfaces
       *is the JPA equivalent
       *both act as an abstraction API to isolate the application
       from the underlying transaction system in use (JDBC or JTA)
+
+Hibernate - Domain model
+     - is the central character in an ORM
+     - Hibernate works best if these classes follow the Plain Old Java Object /
+      JavaBean programming model
+        = ordinary Java object
+          https://en.wikipedia.org/wiki/Plain_old_Java_object
+          *It is an ordinary Java object, not bound by any special restriction other than those
+            forced by the Java Language Specification and not requiring any class path. POJOs are
+            used for increasing the readability and re-usability of a program.
+     - Hibernate understands both the Java and JDBC representations of application data
+     - the function of a Hibernate type
+        = The ability to read/write this data from/to the database
