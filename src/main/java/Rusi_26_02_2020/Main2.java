@@ -4,13 +4,17 @@ public class Main2 {
     public static void main(String[] args) {
         //twitch, dao - data acces objects - intermediate
         //ORM -(SQL) Hibernate, ORMLite*,...
+
+        ConnectionSource connectionSource; //conectare la DB
+
         Account account = new Account();//registru
         account.setName("Ramzes");
         account.setPassword("123456");// todo hash, salt
         System.out.println(account);
 
 //        Dao<Account, String>  accountDao = new AccountDao();
-        Dao<Account, String>  accountDao = DaoManager.createDao(Account.class);//todo pom before
+
+        Dao<Account, String>  accountDao = DaoManager.createDao(connectionSource, Account.class);//todo pom before
         accountDao.create(account); //conectare - CRUD
 
         //query
