@@ -49,3 +49,32 @@ Hibernate - Domain model
      - Hibernate understands both the Java and JDBC representations of application data
      - the function of a Hibernate type
         = The ability to read/write this data from/to the database
+
+Hibernate - types
+• value types
+    basic types
+    embeddable types
+    collection types
+• entity types
+https://www.tutorialspoint.com/hibernate/hibernate_mapping_types.htm
+    -Basic value types- usually map a single database column, to a single (non aggregated) Java type
+
+Entity requirements(by JPA 2.1 specification)
+•class must have a public or protected no argument constructor .
+    It may define additional constructors as well
+•class must be a top level class
+•An enum or interface may not be designated as an entity
+•class must not be final.
+    No methods or persistent instance variables of the entity class may be final
+•If an entity instance is to be used remotely as a detached object, the entity class
+    must implement the Serializable interface
+
+•class must be annotated with the Entity annotation
+•abstract and concrete classes can be => entities.
+    Entities may extend => non entity classes as well as entity classes,
+    non entity classes may extend => entity classes.
+•The persistent state of an entity is represented by instance variables,
+    An instance variable must be directly accessed only from within the methods of the entity
+        by the entity instance itself.
+    The state of the entity is available to clients only through the entity’s accessor
+        methods (getter/setter methods) or other business methods.
