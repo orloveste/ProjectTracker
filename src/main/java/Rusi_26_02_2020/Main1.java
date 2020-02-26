@@ -8,6 +8,10 @@ public class Main1 {
         account.setPassword("123456");// to do hash, salt
         System.out.println(account);
 
+//        Db.saveAccount(account);// nu se poate
+//        Db.saveGame(game);// nu se fac clase universale
+
+
         Game game = new Game();
         game.setName("Dota2");
         game.setPublisher("Valve");
