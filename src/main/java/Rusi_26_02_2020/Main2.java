@@ -7,6 +7,8 @@ public class Main2 {
         String databaseUrl= "jdbc:h2:mem:blablaDaoEx";// db temporara locala
         ConnectionSource connectionSource = new JdbcConnectionSource(databaseUrl); //conectare la DB
 
+        TableUtils.createTable(connectionSource, Account.class);
+
         Account account = new Account();//registru
         account.setName("Ramzes");
         account.setPassword("123456");// todo hash, salt
