@@ -1,6 +1,6 @@
 package Rusi_26_02_2020;
 
-public class Main1 {
+public class Main2 {
     public static void main(String[] args) {
         //twitch, dao - data acces objects - intermediate
         //ORM -(SQL) Hibernate, ORMLite*,...
@@ -9,9 +9,8 @@ public class Main1 {
         account.setPassword("123456");// todo hash, salt
         System.out.println(account);
 
-//        Db.saveAccount(account);// nu se poate
-//        Db.saveGame(game);// nu se fac clase universale
-        AccountDao   accountDao = new AccountDao();
+//        Dao<Account, String>  accountDao = new AccountDao();
+        Dao<Account, String>  accountDao = DaoManager.createDao();//todo pom before
         accountDao.create(account); //conectare - CRUD
 
         //query
