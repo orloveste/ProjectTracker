@@ -10,7 +10,8 @@ public class Main1 {
 
 //        Db.saveAccount(account);// nu se poate
 //        Db.saveGame(game);// nu se fac clase universale
-
+        AccountDao   accountDao = new AccountDao();
+        accountDao.create(account); //conectare
 
         Game game = new Game();
         game.setName("Dota2");
