@@ -11,12 +11,16 @@ public class Main1 {
 //        Db.saveAccount(account);// nu se poate
 //        Db.saveGame(game);// nu se fac clase universale
         AccountDao   accountDao = new AccountDao();
-        accountDao.create(account); //conectare
+        accountDao.create(account); //conectare - CRUD
+
+        //query
+        Account foundAccount = accountDao.queryForId("Ramzes"); //(name, pas, id
+        System.out.println(foundAccount);
 
         Game game = new Game();
         game.setName("Dota2");
         game.setPublisher("Valve");
-        System.out.println(game);
+        //System.out.println(game);
     }
 }
 //videostreaming fara sql?

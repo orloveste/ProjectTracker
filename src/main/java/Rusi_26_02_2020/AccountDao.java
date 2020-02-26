@@ -4,4 +4,8 @@ public class AccountDao {
     public void create(Account account) {
         //save in db
     }
+
+    public Account queryForId(String ramzes) {
+        return null;
+    }
 }
