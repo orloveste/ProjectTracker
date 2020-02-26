@@ -10,7 +10,7 @@ public class Main2 {
         System.out.println(account);
 
 //        Dao<Account, String>  accountDao = new AccountDao();
-        Dao<Account, String>  accountDao = DaoManager.createDao();//todo pom before
+        Dao<Account, String>  accountDao = DaoManager.createDao(Account.class);//todo pom before
         accountDao.create(account); //conectare - CRUD
 
         //query
