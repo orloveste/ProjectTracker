@@ -1,5 +1,7 @@
 package Rusi_26_02_2020;
 
+//@
+@DatabaseTable(tableName = "accounts")
 public class Account {
 
     private String name;
