@@ -6,7 +6,7 @@ public class Account {
     @DatabaseField(id = true)
     private String email;
     private String name;
-    @DatabaseField
+    //@DatabaseField
     private String pasword;
 
     public void setName(String name) {
