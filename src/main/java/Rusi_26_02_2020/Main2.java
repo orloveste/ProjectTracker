@@ -27,6 +27,8 @@ public class Main2 {
         game.setName("Dota2");
         game.setPublisher("Valve");
         //System.out.println(game);
+
+        connectionSource.close();
     }
 }
 //videostreaming fara sql?
