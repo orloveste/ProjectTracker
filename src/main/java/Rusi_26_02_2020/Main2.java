@@ -4,8 +4,8 @@ public class Main2 {
     public static void main(String[] args) {
         //twitch, dao - data acces objects - intermediate
         //ORM -(SQL) Hibernate, ORMLite*,...
-
-        ConnectionSource connectionSource; //conectare la DB
+        String databaseUrl= "jdbc:h2:mem:";// db temporara locala
+        ConnectionSource connectionSource = new JdbcConnectionSource(databaseUrl); //conectare la DB
 
         Account account = new Account();//registru
         account.setName("Ramzes");
